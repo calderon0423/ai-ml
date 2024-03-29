@@ -155,11 +155,12 @@ while place_order:
                     print("Your menu selection was not valid. ")
             else:
             # Tell the customer they didn't select a menu option
-                print(f"{menu_num} was not a menu option.")
-    else:
+                print(f"{menu_num} is not a menu option.")
+        else:
         # Tell the customer they didn't select a number
-        print("You didn't select a number.")
-    
+            print(f"{menu_selection} is not a menu option.")
+    else:
+        print("Your selection was not valid. Try again.")
     while True:
         # Ask the customer if they would like to order anything else
         keep_ordering = input("Would you like to keep ordering? (Y)es or (N)o: ").upper()
@@ -207,11 +208,13 @@ for item in order:
     # print(item_name)
     # print(price)
     # 8. Calculate the number of spaces for formatted printing
-    num_item_spaces = 28 - len(item_name) - 3
-    price_item_spaces = 10 - 6
+    num_item_spaces = 26 - len(item_name) - 1
+    price_num_item_spaces = 8 - len(str(item_price)) - 3
+
 
     # 9. Create space strings
     item_spaces = " " * num_item_spaces
+    price_item_spaces = " " * price_num_item_spaces
 
     # 10. Print the item name, price, and quantity
     print(f"{item_name}{item_spaces} | ${item_price:.2f}{price_item_spaces} | {item_quantity}")
@@ -228,3 +231,4 @@ total_cost = sum(price_list)
 
 print(menu_dashes)
 print(f"The total for your order is ${total_cost:.2f}")
+#type((price_list[0]))

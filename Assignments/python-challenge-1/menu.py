@@ -55,7 +55,7 @@ menu = {
 order = [
 ]
 
-menu_dashes = "-" * 42
+menu_dashes = "-" * 46
 
 # Launch the store and present a greeting to the customer
 print("Welcome to the variety food truck.")
@@ -142,7 +142,7 @@ while place_order:
                     # Add the item name, price, and quantity to the order list
                         order_info = {"Item name": menu_item_name,
                                     "Price": menu_items[menu_num]["Price"],
-                                    "Quantity": quantity}
+                                    "Quantity": int(quantity)}
                         
                         order.append(order_info)
                     else:
@@ -226,8 +226,9 @@ for item in order:
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
 
-price_list = list(map(lambda x,y: x * float(y), all_item_price, all_item_quantity))
-total_cost = sum(price_list)
+#price_list = list(map(lambda x,y: x * float(y), all_item_price, all_item_quantity))
+price_list_v2 = [item["Price"] * item["Quantity"] for item in order]
+total_cost = sum(price_list_v2)
 
 print(menu_dashes)
 print(f"The total for your order is ${total_cost:.2f}")
